@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>This Week's Matchups/Picks</title>
+	<link rel="stylesheet" href="resources/css/style.css">
+	<script
+		src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+		crossorigin="anonymous"></script>
+	<script>
+		function SubForm (){
+			$.ajax({
+				url:"https://api.apispreadsheets.com/data/oE8OGzQU4639gFod/",
+				type:"post",
+				data:$("#myForm").serializeArray(),
+				success: function(){
+					alert("Picks are in!!")
+				},
+				error: function(){
+					alert("There was an error :(")
+				}
+			});
+		}
+	</script>
+</head>
+<body>
+	<div class="title">
+		<h1>LOCKED IN</h1>
+	</div>
+	<div class="navigation">
+		<nav>
+			<a href="file://Users/anniemahlberg/Documents/Projects/Gamblin%20Game/leaderboard.html">Leaderboard</a>
+		</nav>
+	</div>
+	<div class="matchups">
+		<h2>This Week's Matchups</h2>
+		<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSNEvcyHniGD935xN3asXJlw46OGGSfcSY9FGgvo7LniTQwd3VGaAftDxjnVfeZOy9XKJ2s1ZpW4U_N/embed?start=false&loop=false&delayms=3000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+	</div>
+	<div class="form">
+		<form id="myForm">
+			<label>Name</label>
+			<input name="Name" />
+			<br/>
+			<button type="button" class="collapsible">GAME 1 PICKS</button>
+			<div class="form-game1">
+				<label for="G1 O/U">G1 Over/Under</label>
+					<select name="G1 O/U" id="G1 O/U">
+						<option value="">Select an option</option>
+						<option value="Over">Over</option>
+						<option value="Under">Under</option>
+					</select>
+				<input type="checkbox" class="hidden" name="G1 O/U Lock" id="G1 O/U Lock" value="TRUE">
+				<label for="G1 O/U Lock">LOCK</label>
+			<br/>
+				<label for="G1 P/M">G1 Plus/Minus</label>
+					<select name="G1 P/M" id="G1 P/M">
+						<option value="">Select an option</option>
+						<option value="Plus">Plus</option>
+						<option value="Minus">Minus</option>
+					</select>
+				<input type="checkbox" class="hidden" name="G1 P/M Lock" id="G1 P/M Lock" value="TRUE">
+				<label for="G1 P/M Lock">LOCK</label>
+			</div>
+			<button type="button" class="collapsible">GAME 2 PICKS</button>
+			<div class="form-game2">
+				<label for="G2 O/U">G2 Over/Under</label>
+				<select name="G2 O/U" id="G2 O/U">
+					<option value="">Select an option</option>
+					<option value="Over">Over</option>
+					<option value="Under">Under</option>
+				</select>
+			<input type="checkbox" class="hidden" name="G2 O/U Lock" id="G2 O/U Lock" value="TRUE">
+			<label for="G2 O/U Lock">LOCK</label>
+		<br/>
+			<label for="G2 P/M">G2 Plus/Minus</label>
+				<select name="G2 P/M" id="G2 P/M">
+					<option value="">Select an option</option>
+					<option value="Plus">Plus</option>
+					<option value="Minus">Minus</option>
+				</select>
+			<input type="checkbox" class="hidden" name="G2 P/M Lock" id="G2 P/M Lock" value="TRUE">
+			<label for="G2 P/M Lock">LOCK</label>
+		</div>
+		<button type="button" class="collapsible">GAME 3 PICKS</button>
+		<div class="form-game3">
+			<label for="G3 O/U">G3 Over/Under</label>
+			<select name="G3 O/U" id="G3 O/U">
+				<option value="">Select an option</option>
+				<option value="Over">Over</option>
+				<option value="Under">Under</option>
+			</select>
+		<input type="checkbox" class="hidden" name="G3 O/U Lock" id="G3 O/U Lock" value="TRUE">
+		<label for="G3 O/U Lock">LOCK</label>
+	<br/>
+		<label for="G3 P/M">G3 Plus/Minus</label>
+			<select name="G3 P/M" id="G3 P/M">
+				<option value="">Select an option</option>
+				<option value="Plus">Plus</option>
+				<option value="Minus">Minus</option>
+			</select>
+		<input type="checkbox" class="hidden" name="G3 P/M Lock" id="G3 P/M Lock" value="TRUE">
+		<label for="G3 P/M Lock">LOCK</label>
+		</div>
+	</div>
+	</form>
+	<button onclick='SubForm()'>Submit</button>
+	<script>
+		var coll = document.getElementsByClassName("collapsible");
+		var i;
+
+		for (i = 0; i < coll.length; i++) {
+  			coll[i].addEventListener("click", function() {
+    			this.classList.toggle("active");
+    			var content = this.nextElementSibling;
+    			if (content.style.display === "block") {
+      			content.style.display = "none";
+    		} else {
+      			content.style.display = "block";
+    		}
+  			});
+		}
+	</script>
+</body>
+</html>
